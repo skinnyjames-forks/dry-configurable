@@ -23,6 +23,30 @@ module Dry
         initialize_elements(elements)
       end
 
+      def replace(settings)
+        unless settings.is_a? Dry::Configurable::Settings
+          raise ArgumentError, "settings must be a Dry::Configurable::Settings"
+        end
+
+        settings.each do |setting|
+          self << setting
+        end
+      end
+
+      def merge(settings)
+        settings.each do |setting|
+          merge_setting(setting)
+        end
+      end
+
+      def merge_setting(setting)
+        if key?(setting.name)
+          elements[setting.name].merge(setting)
+        else
+          self << setting
+        end
+      end
+
       # @api private
       def <<(setting)
         elements[setting.name] = setting

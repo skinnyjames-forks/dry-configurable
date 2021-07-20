@@ -67,9 +67,7 @@ Naming/MethodName:
   Enabled: false
 
 Naming/MethodParameterName:
-  Enabled: true
-  Exclude:
-    - "spec/**/*.rb"
+  Enabled: false
 
 Naming/MemoizedInstanceVariableName:
   Enabled: false
@@ -174,7 +172,29 @@ Style/MultipleComparison:
 Style/Next:
   Enabled: false
 
+Style/AccessorGrouping:
+  Enabled: false
+
+Style/EmptyLiteral:
+  Enabled: false
+
+Style/Semicolon:
+  Exclude:
+    - "spec/**/*.rb"
+
+Style/CaseEquality:
+  Exclude:
+    - "lib/dry/monads/**/*.rb"
+
 Lint/UnusedBlockArgument:
+  Exclude:
+    - "spec/**/*.rb"
+
+Lint/Debugger:
+  Exclude:
+    - "bin/console"
+
+Lint/BinaryOperatorWithIdenticalOperands:
   Exclude:
     - "spec/**/*.rb"
 
@@ -186,6 +206,20 @@ Lint/EmptyBlock:
   Exclude:
     - "spec/**/*.rb"
 
+Lint/UselessMethodDefinition:
+  Exclude:
+    - "spec/**/*.rb"
+
+Lint/SelfAssignment:
+  Enabled: false
+
 Naming/ConstantName:
   Exclude:
     - "spec/**/*.rb"
+
+Naming/VariableNumber:
+  Exclude:
+    - "spec/**/*.rb"
+
+Naming/BinaryOperatorParameterName:
+  Enabled: false
